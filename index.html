@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel GTA RP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Panel de Misiones GTA RP</h1>
+
+    <input id="nombre" placeholder="Nombre de la misión">
+
+    <textarea id="descripcion" placeholder="Descripción"></textarea>
+
+    <input id="hora" type="time">
+
+    <input id="imagen" placeholder="URL de la imagen">
+
+    <button onclick="guardar()">
+        Guardar misión
+    </button>
+
+    <div id="estado"></div>
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
