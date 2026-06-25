@@ -68,4 +68,3 @@ timezone: 'America/Santiago'
 });
 
 client.login(process.env.DISCORD_TOKEN);
-
