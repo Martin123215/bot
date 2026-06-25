@@ -1,4 +1,3 @@
-writing{variant="document" id="51842"}
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const cron = require('node-cron');
 
@@ -30,7 +29,6 @@ client.once('ready', async () => {
         value: 'Ve en búsqueda de la carga y entrégala.'
       })
       .setColor('#0099ff')
-      .setImage('https://i.imgur.com/8Km9tLL.jpg')
       .setTimestamp();
 
     await canal.send({
