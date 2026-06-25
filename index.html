@@ -9,21 +9,29 @@
 <body>
 
 <div class="container">
-    <h1>Panel de Misiones GTA RP</h1>
 
-    <input id="nombre" placeholder="Nombre de la misión">
+<h1>Panel de Misiones GTA RP</h1>
 
-    <textarea id="descripcion" placeholder="Descripción"></textarea>
+<input id="nombre" placeholder="Nombre de la misión">
 
-    <input id="hora" type="time">
+<textarea id="descripcion" placeholder="Descripción"></textarea>
 
-    <input id="imagen" placeholder="URL de la imagen">
+<input id="dia" placeholder="Ej: Miércoles">
 
-    <button onclick="guardar()">
-        Guardar misión
-    </button>
+<input id="hora" type="time">
 
-    <div id="estado"></div>
+<input id="franja" placeholder="Ej: #2 | 17-20hs">
+
+<input id="requisito" placeholder="Ej: Taladro">
+
+<input id="imagen" placeholder="URL de la imagen">
+
+<button onclick="guardar()">
+Guardar misión
+</button>
+
+<div id="estado"></div>
+
 </div>
 
 <script type="module" src="app.js"></script>
