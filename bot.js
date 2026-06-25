@@ -1,15 +1,57 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const cron = require('node-cron');
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds]
 });
 
+const CANAL_ID = '1519365482656829561';
+const ROL_ID = 'PON_AQUI_EL_ID_DEL_ROL';
+
 client.once('ready', async () => {
   console.log(`Bot conectado como ${client.user.tag}`);
 
-  const canal = await client.channels.fetch('1519365482656829561');
+  // Miércoles 14:00
+  cron.schedule('0 14 * * 3', async () => {
 
-  await canal.send('🚚 Bot funcionando correctamente');
+    const canal = await client.channels.fetch(CANAL_ID);
+
+    const embed = new EmbedBuilder()
+      .setTitle('🚚 MISIÓN DE TRÁFICO ILEGAL AVANZADO')
+      .setDescription('En 15 minutos comienza una actividad competitiva.')
+      .addFields(
+        {
+          name: '📋 Instrucciones',
+          value: 'Ve en búsqueda de la carga y entrégala.'
+        }
+      )
+      .setColor('#0099ff')
+      .setImage('https://i.imgur.com/8Km9tLL.jpg');
+
+    canal.send({
+      content: `<@&${ROL_ID}>`,
+      embeds: [embed]
+    });
+
+  });
+
+  // Miércoles 21:00
+  cron.schedule('0 21 * * 3', async () => {
+
+    const canal = await client.channels.fetch(CANAL_ID);
+
+    const embed = new EmbedBuilder()
+      .setTitle('🚚 MISIÓN DE TRÁFICO ILEGAL AVANZADO')
+      .setDescription('Comienza una nueva actividad.')
+      .setColor('#00ff66');
+
+    canal.send({
+      content: `<@&${ROL_ID}>`,
+      embeds: [embed]
+    });
+
+  });
+
 });
 
 client.login(process.env.DISCORD_TOKEN);
