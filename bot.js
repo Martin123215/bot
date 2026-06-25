@@ -6,7 +6,7 @@ const client = new Client({
 });
 
 const CANAL_ID = '1519365482656829561';
-const ROL_ID = 'PON_AQUI_EL_ID_DEL_ROL';
+const ROL_ID = '1519522915627044966';
 
 client.once('ready', async () => {
   console.log(`Bot conectado como ${client.user.tag}`);
