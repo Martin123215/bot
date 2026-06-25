@@ -1,67 +1,55 @@
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 import {
- getFirestore,
- collection,
- addDoc
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+  getFirestore,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDkqZfjuT4yBPAKKU5f1eXlqEW7-zeg1GE",
+  apiKey: "TU_API_KEY",
   authDomain: "bots-9de8a.firebaseapp.com",
   projectId: "bots-9de8a",
   storageBucket: "bots-9de8a.firebasestorage.app",
   messagingSenderId: "830406173368",
-  appId: "1:830406173368:web:cdaa7c75365dbcdeaa8a4d",
-  measurementId: "G-BD322NC94J"
+  appId: "1:830406173368:web:cdaa7c75365dbcdeaa8a4d"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
 window.guardar = async () => {
 
- try{
+  try {
 
-   await addDoc(
-     collection(db,"misiones"),
-     {
-       nombre:
-       document.getElementById("nombre").value,
+    await addDoc(collection(db, "misiones"), {
 
-       descripcion:
-       document.getElementById("descripcion").value,
+      nombre: document.getElementById("nombre").value,
 
-       hora:
-       document.getElementById("hora").value,
+      descripcion: document.getElementById("descripcion").value,
 
-       imagen:
-       document.getElementById("imagen").value,
+      dia: document.getElementById("dia").value,
 
-       fecha:
-       new Date()
-     }
-   );
+      hora: document.getElementById("hora").value,
 
-   document.getElementById("estado").innerHTML =
-   "✅ Misión guardada";
+      franja: document.getElementById("franja").value,
 
- }catch(error){
+      requisito: document.getElementById("requisito").value,
 
-   document.getElementById("estado").innerHTML =
-   error.message;
+      imagen: document.getElementById("imagen").value,
 
- }
+      fechaRegistro: new Date()
 
-}
+    });
+
+    document.getElementById("estado").innerHTML =
+      "✅ Misión guardada correctamente";
+
+  } catch (error) {
+
+    document.getElementById("estado").innerHTML =
+      error.message;
+
+  }
+
+};
