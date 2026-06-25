@@ -35,7 +35,7 @@ const embed = new EmbedBuilder()
   .setTimestamp();
 
 await canal.send({
-  content: `<@&${ROL_ID}>`,
+  content: '<@&1519522915627044966>',
   embeds: [embed]
 });
 ```
